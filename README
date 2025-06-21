@@ -1,0 +1,62 @@
+ZOOKEEPER AND KAFKA INSTALLATION STEPS
+--------------------------------------
+
+https://www.youtube.com/watch?v=GMYAtF6IQoo
+
+https://www.apache.org/dyn/closer.lua/zookeeper/zookeeper-3.8.4/apache-zookeeper-3.8.4-bin.tar.gz
+https://www.apache.org/dyn/closer.cgi?path=/kafka/4.0.0/kafka_2.13-4.0.0.tgz
+
+TO UNZIP THESE GZ COMMAND -> copy into any location , i just did in below location:
+
+tar -xvzf kafka_2.12-3.5.1.tgz -C C:\simu\testKafka
+tar -xvzf apache-zookeeper-3.8.4-bin.tar.gz -C C:\simu\testZookeeper
+
+I also renamed the apache-zookeeper-3.8.4-bin to apache-zookeeper-3.8.4
+
+Environmental settings for zookeeper in windows
+
+ZOOKEEPER_HOME
+in path add, %ZOOKEEPER_HOME%\bin
+
+
+
+two configuration  file changes -> 
+KAFKA location -> server.properties change the log.dirs, make sure you provide a valid location inside the kafka eg: C:/simu/testKafka/kafka_2.12-3.5.1/kafka-logs , make sure this dir is created
+zookeeper location you should see a cfg file , 
+
+Inside the zookeeper C:\simu\testZookeeper\apache-zookeeper-3.8.4\conf , renamed the file
+
+zoo_sample.cfg as zoo.cfg
+
+open the zoo.cfg dataDir=C:/simu/testZookeeper/apache-zookeeper-3.8.4/data this dir should be created.
+
+STARTING ZOOKEEPER
+------------------
+
+run the below command from any location in cmd promt (as its already configured in env settings)
+
+zkServer
+
+START KAFKA
+-----------
+
+C:\simu\testKafka\kafka_2.12-3.5.1\bin\windows  -> my kafka installed loc
+
+kafka-server-start.bat ..\..\config\server.properties
+
+SAMPLE TOPIC CREATION FROM CMD
+=============================
+
+CREATE A TOPIC
+
+kafka-topics.bat --create --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1 --topic testdatasample
+
+LIST ALL TOPICS
+===============
+
+kafka-topics.bat --list --bootstrap-server localhost:9092
+
+CREATE A SPRING BOOT
+===================
+
+https://www.youtube.com/watch?v=WOPPG5tyApg
