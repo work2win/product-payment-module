@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.work2win.product.payment.repo.OrderRepository;
-import com.work2win.product.payment.model.Orders;
 import com.work2win.product.payment.model.PaymentTransaction;
 import com.work2win.product.payment.service.PaymentService;
 
@@ -33,21 +32,9 @@ public class PaymentController {
 		  if(transaction.getStatusCode().value() == 200)
 			  return ResponseEntity.status(HttpStatus.ACCEPTED).body("Payment succesful");
 		  else
-			  return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Payment failure");		  
-		 
+			  return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Payment failure");		 
 	
 	  }
 	  
-	  @GetMapping("/proces")
-	  public List<Orders> processPaymet() {
-		  
-	       return orderRepository.findAll();
-	  }
-	  
-	  @GetMapping("/proces/{id}")
-	  public Orders processPayme(@PathVariable int id) {
-		  
-	       return orderRepository.findById(id).orElse(null);
-	  }
-
+	
 }
