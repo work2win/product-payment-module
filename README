@@ -60,3 +60,6 @@ CREATE A SPRING BOOT
 ===================
 
 https://www.youtube.com/watch?v=WOPPG5tyApg
+
+Notes:
+Use jakarta.transaction if you are using @Transactional, @Entity or @Table for Hibernate 6.2

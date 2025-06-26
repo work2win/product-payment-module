@@ -1,6 +1,6 @@
 package com.work2win.product.model;
 import jakarta.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
